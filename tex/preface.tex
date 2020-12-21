@@ -1,0 +1,97 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Fpreface.tex
+%% Description:   
+%% Author:        Carsten Wulff <wulff@iet.ntnu.no>
+%% Created at:    Thu Apr 24 16:35:47 2008
+%% Modified at:   Mon Nov  3 17:18:51 2008
+%% Modified by:   Carsten Wulff <wulff@iet.ntnu.no>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter*{Preface}\addcontentsline{toc}{chapter}{Preface}
+This thesis was submitted to the Norwegian University of Science and Technology 
+(NTNU) in partial fulfilment of the requirements for the degree of philosophiae 
+doctor (PhD). 
+The work presented herein was conducted at the Department Electronics
+and Telecommunication, NTNU, under the supervision of Professor Trond
+Ytterdal, with Professor Trond S{\ae}ther as co-advisor. Financial support from the Norwegian Research Council through the
+project Smart Microsystems for Diagnostic Imaging in Medicine (project
+number 159559/130) and the project ASICs for Microsystems (project
+number 133952/420) is gratefully acknowledged.
+
+
+\section*{Research Path}
+This is a document that has been four years in the making. I began by
+my  work in January 2004. The intent was to investigate calibration
+algorithms for micro-systems, with focus on genetic algorithms. But I
+strayed from this path and found analog-to-digital converters. The project
+Smart Microsystems for Diagnostic Imaging in Medicine (SMIDA) needed a
+low resolution high speed ADC, and I was asked to build it. This led to some initial work on dynamic comparators, opamps in
+90nm CMOS and bootstrapped switches. 
+
+Wislands doctoral thesis (2003) on \textit{Non-feedback Delta-Sigma
+  modulators for digital-to-analog conversion} peaked my
+interest. We\footnote{ Trond Ytterdal and I}
+wanted to see if we could apply the open-loop sigma-delta technique to
+analog-to-digital converters. We believed they could be used as
+front-ends to pipelined ADCs. In that respect, we developed techniques
+for switched-capacitor circuits. 
+
+At ISSCC 2006 the first comparator-based switched-capacitor circuit
+was published, and we immediately jumped on it. From the summer of 2006
+to the summer of 2007 my time was dedicated to tape-out the first
+differential comparator-based switched-capacitor ADC. That year
+I was fortunate to spend my time at the
+University of Toronto as a visiting researcher.  The time in Toronto inspired much
+of my work, like the open-loop residue amplifiers for pipelined ADC,
+and the continuous time bootstrapped switches. 
+
+My chip came back in January 2008, and most of the spring was spent on
+making the chip work. On the first day I
+got 4.2-bit ENOB, and it took me four months to get to 7.05-bit.
+
+As these four and a half years draw to a close, I find that I am
+satisfied. In a sense I have come full circle with the genetic
+algorithm used to calibrate my ADC. 
+
+
+\section*{Acknowledgements}
+\begin{itemize}
+\item To my wife, Anita, without her this thesis
+would not have seen the light of day. She was willing to move half way
+around the world with me, for which I am forever grateful. 
+\item To my son, Villem, born during my years as a PhD student you have shown me that
+  it's possible to get up at 05:30 {\sc a.m} and still
+  survive the day. This has been immensely helpful. Your smiles and hugs
+  brighten my mood after a long day at work.
+\item To my late mother, my dad, my sisters and my extended family for
+  your love and support.
+\item To my supervisor, Trond Ytterdal, he has always been available
+  for questions and his guidance is valued. He has provided the resources necessary to do this
+  work.  
+\item To my co-advisor, Trond S{\ae}ther, for his support and
+  convincing me that analog integrated circuits was the way to go.
+\item To my colleagues at Department of Electronics and
+  Telecommunication, Circuits and Systems Group for lunch discussions,
+  coffee sessions and support.
+\item To my fellow PhD students for many
+  fun discussions: {\O}ystein
+  Gjermundnes, Ashgar Havashki, Are Hellandsvik, Tajeshwar Singh, Ivar
+  L{\o}kken, Anders Vinje, Saeeid Tahmasbi Oskuii,
+   Linga Reddy Chenkeramaddi and Bertil Nistad. 
+\item To Johnny Bj{\o}rnsen for help with measurements.
+\item To my fellow graduate students during my stay in Toronto for
+  their hints and tips: Imran Ahmed, Bert Leesti, Ahmed Gharbiya,
+  Trevor Caldwell and Pradip Thachile.
+\item  A special thanks to Professors
+  Ken Martin and David Johns for many useful questions and
+  suggestions.  
+\end{itemize}
+
+\section*{Comments on style}
+In a break from conventional page numbering this thesis start with
+page number 1 on the title page. In this digital age it is likely that this
+thesis will be read on a computer. As the title page is page one, the
+page numbers of the thesis will match the page numbers of the electronic
+document. I believe this will make the thesis easier to navigate.
+
+

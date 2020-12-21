@@ -1,0 +1,1 @@
+bash -c "for file in ./*pdf; do pdfcrop $file ; ./pdf2eps.bat ${file%%.pdf}-crop.pdf ${file%%.pdf}.eps ; mv ${file%%.pdf}-crop.pdf $file; ./bbox_add.pl ${file%%.pdf}.eps;  done"

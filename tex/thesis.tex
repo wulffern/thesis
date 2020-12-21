@@ -1,0 +1,113 @@
+
+\documentclass[final]{ntnuthesis}
+
+\usepackage{wdefault}
+\newcommand{\myfigwidtha}{0.7\textwidth}
+
+%\def\abstract{\section{Abstract}}
+%\def\endabstract{}
+%\usepackage{IEEEtrantools}
+\newtheorem{exmp}{Example}[section]
+
+\newcommand{\CWabstract}[1]{
+\section{#1}
+}
+\newtheorem{IEEEproof}{Proof}
+
+\setcounter{lofdepth}{2}
+\usepackage{setspace}
+\onehalfspacing
+
+%-------------------------------------------------------
+% Title
+%-------------------------------------------------------
+\bibliographystyle{IEEEtran}
+\title{Efficient ADCs for nano-scale CMOS Technology}
+\author{Carsten Wulff}
+\degreetype{PhD}
+\faculty{Faculty of Information Technology, Mathematics and Electrical Engineering}
+\department{Department of Electronics and Telecommunications}
+\setmonth{December}
+\setyear{2008}
+\issnprinted{N/A}
+\isbnprinted{978-82-471-1286-1}
+\isbnelectronic{978-82-471-1287-8}
+\renewcommand{\bibname}{References}
+\renewcommand{\figurename}{Fig.}
+\renewcommand{\myfignamehead}{Fig.}
+
+%2008:292  	ISBN 978-82-471-1287-8  	Electronic  	2008-10-22
+%2008:292 	ISBN 978-82-471-1286-1 	Printed 	2008-10-22
+
+\begin{document}
+\pagenumbering{arabic}
+\maketitle
+
+\include{abstract}
+%\include{errata}
+\include{preface}
+\cleardoublepage
+\addcontentsline{toc}{chapter}{Table of contents}
+\tableofcontents
+\cleardoublepage
+\addcontentsline{toc}{chapter}{List of figures}
+\listoffigures
+\cleardoublepage
+\addcontentsline{toc}{chapter}{List of tables}
+\listoftables
+
+\include{abbrev}
+
+\include{papers-intro}
+%\pagestyle{headings}
+%\pagenumbering{arabic}
+\include{introduction}
+\include{limits}
+\include{research}
+%\include{../open.loop.sigma.delta/publications/modulo.integrator/olsd}
+%\include{papers}
+\renewcommand{\figurename}{Figure}
+\renewcommand{\myfignamehead}{Figure}
+\include{paper1}
+\include{paper2}
+\renewcommand{\figurename}{Fig.}
+\renewcommand{\myfignamehead}{Fig.}
+\include{paper3}
+\renewcommand{\figurename}{Figure}
+\renewcommand{\myfignamehead}{Figure}
+\include{paper4}
+\include{paper5}
+\renewcommand{\figurename}{Fig.}
+\renewcommand{\myfignamehead}{Fig.}
+\include{paper6}
+\include{paper7}
+
+
+\renewcommand\myfigname{fig:}
+\renewcommand\myeqname{eq:}
+\include{conclusion}
+%\include{olsdm}
+%\include{cbsc}
+%\include{conclusion}
+
+%\include{papers}
+
+%\pagebreak
+%\appendix{}
+
+%\pagenumbering{Roman}
+%\include{adc.primer}
+%\include{noise}
+%\include{on.psd}
+%\include{ota.dc.gain}
+%\include{ieee.j.jssc}
+\cleardoublepage
+\addcontentsline{toc}{chapter}{References}
+\bibliography{IEEEabrv,../bib/phd,../bib/IEEE_J_JSSC}
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: 
+%%% End: 

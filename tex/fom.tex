@@ -1,0 +1,67 @@
+\section{Figure of Merit}
+Figure of merit is one of the measures used to compare ADCs with
+eachother. A figure of merit tries to incorperate some of the
+important parameters for an ADC. One figure of merit which is commonly
+used compares power dissipation , sampling frequency and effective
+number of bits. It is usually given as
+\begin{equation}
+  \label{eq:fomwords}
+  FOM = \frac{P}{2^{2ENOB} f_s}
+\end{equation}
+
+
+\subsection{FOM for constant current }
+We have previously defined the necessary sampling capacitance as 
+\begin{equation}
+  \label{eq:csamp}
+   C_s = \frac{ \eta_1 12 kT 2^{2ENOB}}{V{pp}^2}
+\end{equation}
+where $\eta_1$ is the scaling factor between the thermal noise power
+and quantization noise power, a usual number is $\vnn{th}/\vnn{q} = 1/4$.
+
+
+\subsection{FOM for constant unity gain}
+The output voltage $V_o$ for linear settling with a single pole is
+given by 
+\eqna{
+  \label{eq:epsilon}
+  V_o &=& V_i(1 - e^{-t/\tau})   \\
+ V_i - \epsilon &=& V_i - e^{-t/\tau}\\
+ \epsilong = e^{-t/\tau}
+}
+Assume two period switched capacitor circuit, here $t$ will be given
+by $1/2f_s$. The time constant $\tau$ can be defined as 
+\eqn{
+  1/\tau_u = \omega_u = g_m/C_s = 2I_D/V_{EFF}C_s
+}
+Epsilon is the linear settling error and must be smaller than $ 1/2^b $
+to avoid a settling error, we thus define $\epsilon =   1/2^b$.
+
+Equation \req{epsilon} can, if we insert for the known variables $C_s,
+t, \tau$, be written
+
+\eqn{
+  1/2^b = e^{\frac{-I_D}{V_{EFF} \frac{ \eta_1 12 kT
+      2^{2ENOB}}{V{pp}^2} f_s}}
+}
+
+If we insert define $V_{EFF} = \eta_2 V_{DD}$ and $V_{PP} = \eta_3
+V_{DD}$ and rewrite
+
+\eqn{
+ ln (1/2^b) = \frac{ - \eta_3^2 P  }{\eta_2 \eta_1 12
+   kT 2^{2ENOB}f_s}
+}
+
+Which results in 
+
+\eqn{
+FOM = \frac{ \eta_2 \eta_1 12 k T ln (1/2^b)}{\eta_3^2}
+}
+
+The constants $\eta_3$ and $\eta_2$ have a  maximum value of 1, but it
+is unusuall for $\eta_2$ be bigger than 1/4. Assume $\eta_ 
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "thesis"
+%%% End: 

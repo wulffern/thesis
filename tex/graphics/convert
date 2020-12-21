@@ -1,0 +1,22 @@
+#!/bin/bash
+######################################################################
+## Fconvert
+## Description:   
+## Author:        Carsten Wulff <wulff@iet.ntnu.no>
+## Created at:    Thu May 15 15:04:24 2008
+## Modified at:   Thu May 15 15:32:39 2008
+## Modified by:   Carsten Wulff <wulff@iet.ntnu.no>
+######################################################################
+
+if [ "X"$1 == "X" ]; then
+
+for f in *.eps; do
+    ./bbox_add.pl $f;
+    epstopdf $f;
+done
+
+else
+    ./bbox_add.pl $1;
+    epstopdf $1;
+fi
+    

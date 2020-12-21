@@ -1,0 +1,57 @@
+\chapter{Paper 3}\label{sc:p3}
+\textbf{\Large Resonators In Open-Loop Sigma-Delta Modulators}\\
+\indent Carsten Wulff and Trond Ytterdal\\
+\indent Submitted to IEEE Transactions on Circuits and Systems I: Regular papers\\
+%\def\abstract{\section{Abstract}}
+\renewcommand\myfigname{sdrfig:}
+\renewcommand\myeqname{sdreq:}
+%\renewcommand{\appendices}{}
+%\newcommand{\myappname}{Section}
+\newcommand{\myappname}{Section }
+\newcommand{\myappendices}{}
+
+%\newcommand{\myintmodref}{}
+\newcommand{\mymodintfig}{
+ \begin{figure}[htbp]
+   \centering{\includegraphics[width=\myfigwidth]{graphics/intmod_z}}
+   \caption{SIMULINK model, SNDR = 52.20-dB}
+   \label{sdrfig:intmod_z} 
+ \end{figure}
+
+ \begin{figure}[htbp]
+   \centering{\includegraphics[width=\myfigwidth]{graphics/intmod_d}}
+\caption{Approximation, SNDR = 51.44-dB}
+\label{sdrfig:intmod_d}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering{ \includegraphics[width=\myfigwidth]{graphics/intmod_spice}}
+\caption{SPICE model, SNDR = 51.66-dB}
+\label{sdrfig:intmod_spice}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering{\includegraphics[width=\myfigwidth]{graphics/intmod_u}}
+ \caption{FFT of $u_n$}
+\label{sdrfig:intmod_u} 
+\end{figure}
+
+}
+
+\section*{Errata}
+We recieved a response to this paper quite quickly, and all
+reviewers found the paper interesting, but wanted more information. We
+were asked to submit a new version for review with the following
+changes. 
+\begin{itemize}
+\item Discuss the effects of mismatch in capacitors
+\item Discuss why adding zeros at non-zero frequency is better than at
+  zero frequency
+\item Add more introduction to OLSDM and SDM
+\item Discuss the effects of offset errors in comparators
+\end{itemize}
+These changes have been included in the paper below.
+
+
+\input{paper3copy}
+

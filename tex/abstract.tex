@@ -1,0 +1,49 @@
+\chapter*{Abstract}\addcontentsline{toc}{chapter}{Abstract}
+The topic of this thesis is efficiency of analog-to-digital
+converters (ADC) in nano-scale CMOS technology. With  downscaling of CMOS
+technology it is  harder to design ADCs. The power supply is reduced due to reliability concerns and the output resistance of
+transistors is reduced because of shorter channel lengths. Such
+challenges makes it harder to design ADCs with conventional circuit
+techniques and ADC architectures.
+
+We investigate two separate paths towards higher efficiency
+in nano-scale CMOS technologies: circuit implementation, and ADC architectures. 
+
+The research into ADC architectures assumes that circuit
+implementation challenges will be solved. It looks at how a sigma-delta modulator can
+be used as a front-end to pipelined ADCs. A new class of sigma-delta
+modulators, the switched-capacitor (SC) open-loop sigma-delta
+modulator (OLSDM) is introduced. We introduce the SC modulo integrator
+and the SC modulo resonator that facilitates implementation of
+sigma-delta modulators that do not have feedback of the quantized
+signal. Thus, high-latency converters such as pipelined ADCs can be
+used as quantizers. Limitations of OLSDM, like operational amplifier (opamp) DC gain,  quantizer
+linearity, and input signal amplitude are discussed in
+detail. Behavioral simulations of OLSDMs confirm the theory. 
+
+
+The research into circuit implementations investigate how the opamp can be
+removed from SC circuits. Two techniques are
+investigated: open-loop residue amplification and comparator-based
+switched-capacitor circuits (CBSC). 
+
+ We
+present the design of a 7-bit 200MS/s 2mW pipelined ADC based on
+switched open-loop residue amplifiers.  By turning off the open-loop
+amplifiers when they are not needed the  power
+dissipation is reduced by 23\%. 
+
+Comparator-based switched-capacitor circuits (CBSC) are an alternative
+to opamp based SC circuits. By replacing the opamp
+with a comparator and current sources the same charge transfer is
+achieved. 
+
+We discuss design equations for CBSC, and how one can model CBSC in
+MATLAB and SPICE.
+
+We present an 8-bit 60MS/s 8.5mW pipelined ADC with 7.05-bit effective
+number of bits (ENOB). At the time of writing
+it was the first silicon
+proven differential CBSC pipelined ADC. 
+
+

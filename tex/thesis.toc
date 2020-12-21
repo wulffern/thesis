@@ -1,0 +1,141 @@
+\contentsline {chapter}{Abstract}{3}{chapter*.1}
+\contentsline {chapter}{Preface}{5}{chapter*.2}
+\contentsline {chapter}{Table of contents}{9}{section*.5}
+\contentsline {chapter}{List of figures}{15}{chapter*.6}
+\contentsline {chapter}{List of tables}{21}{chapter*.7}
+\contentsline {chapter}{List of abbreviations}{23}{chapter*.9}
+\contentsline {chapter}{List of appended papers}{25}{chapter*.10}
+\contentsline {paragraph}{1.}{25}{section*.11}
+\contentsline {paragraph}{2.}{25}{section*.12}
+\contentsline {paragraph}{3.}{25}{section*.13}
+\contentsline {paragraph}{4.}{26}{section*.14}
+\contentsline {paragraph}{5.}{26}{section*.15}
+\contentsline {paragraph}{6.}{26}{section*.16}
+\contentsline {paragraph}{7.}{26}{section*.17}
+\contentsline {paragraph}{A }{26}{section*.18}
+\contentsline {paragraph}{B}{27}{section*.19}
+\contentsline {paragraph}{C}{27}{section*.20}
+\contentsline {paragraph}{D}{27}{section*.21}
+\contentsline {paragraph}{E}{27}{section*.22}
+\contentsline {paragraph}{F}{27}{section*.23}
+\contentsline {chapter}{\numberline {1}Introduction}{29}{chapter.1}
+\contentsline {section}{\numberline {1.1}Main contributions}{32}{section.1.1}
+\contentsline {section}{\numberline {1.2}Thesis outline}{33}{section.1.2}
+\contentsline {chapter}{\numberline {2}Limits of ADC figure of merit}{35}{chapter.2}
+\contentsline {section}{\numberline {2.1}Required sampling capacitance}{36}{section.2.1}
+\contentsline {section}{\numberline {2.2}Constant ramp FOM limit}{37}{section.2.2}
+\contentsline {section}{\numberline {2.3}Linear settling FOM limit}{38}{section.2.3}
+\contentsline {section}{\numberline {2.4}FOM limit including parasitic capacitance}{39}{section.2.4}
+\contentsline {section}{\numberline {2.5}Comparison with published results}{40}{section.2.5}
+\contentsline {chapter}{\numberline {3}Research Overview}{43}{chapter.3}
+\contentsline {section}{\numberline {3.1}Open-loop sigma-delta modulators (OLSDM)}{43}{section.3.1}
+\contentsline {subsubsection}{Paper 1: Analog Modulo Integrator For Use In Open-Loop Sigma-Delta Modulators}{46}{section*.28}
+\contentsline {subsubsection}{Paper 2: Switched Capacitor Analog Modulo Integrator For Application In Open Loop Sigma-Delta Modulators}{46}{section*.29}
+\contentsline {subsubsection}{Paper 3: Resonators In Open-Loop Sigma-Delta Modulators}{47}{section*.30}
+\contentsline {section}{\numberline {3.2}Efficient circuit solutions for pipelined ADCs}{47}{section.3.2}
+\contentsline {subsubsection}{Paper 4: 0.8V 1GHz Dynamic Comparator In Digital 90nm CMOS Technology}{48}{section*.31}
+\contentsline {subsubsection}{Paper 5: Design of a 7-bit 200MS/s, 2mW Pipelined ADC With Switched Open-Loop Amplifiers In a 65nm CMOS Technology}{48}{section*.32}
+\contentsline {subsubsection}{Paper 6: Design and Behavioral Simulation of Comparator-Based Switched Capacitor Circuits}{48}{section*.33}
+\contentsline {subsubsection}{Paper 7: An 8-bit 60-MS/s 8.5mW Differential Comparator-Based Switched-Capacitor Pipelined ADC in 90nm CMOS Technology}{49}{section*.34}
+\contentsline {section}{\numberline {3.3}Clarification of contributions}{49}{section.3.3}
+\contentsline {chapter}{\numberline {4}Paper 1}{51}{chapter.4}
+\contentsline {section}{\numberline {4.1}Introduction}{52}{section.4.1}
+\contentsline {section}{\numberline {4.2}Open Loop Sigma-Delta Modulator}{53}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Proof of Equivalence }{53}{subsection.4.2.1}
+\contentsline {section}{\numberline {4.3}The Analog Modulo Integrator}{55}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}A Solution Based on Switched Capacitors}{56}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Equations of the SC Modulo Integrator}{57}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}Simulation of the SC modulo integrator}{59}{subsection.4.3.3}
+\contentsline {section}{\numberline {4.4}Simulation of OLSDM Modulator}{60}{section.4.4}
+\contentsline {section}{\numberline {4.5}Future Work}{62}{section.4.5}
+\contentsline {section}{\numberline {4.6}Conclusion}{62}{section.4.6}
+\contentsline {chapter}{\numberline {5}Paper 2}{65}{chapter.5}
+\contentsline {paragraph}{Keywords}{66}{section*.49}
+\contentsline {section}{\numberline {5.1}Introduction}{66}{section.5.1}
+\contentsline {section}{\numberline {5.2}Open Loop Sigma-Delta Modulator}{68}{section.5.2}
+\contentsline {section}{\numberline {5.3}Behavioral Simulations In Matlab}{72}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}First And Second Order OLSDM}{72}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}Input Signal Amplitude Limitations}{74}{subsection.5.3.2}
+\contentsline {subsection}{\numberline {5.3.3}Quantizer Linearity And Correction Of False Modulo Errors}{77}{subsection.5.3.3}
+\contentsline {section}{\numberline {5.4}The Analog Modulo Integrator}{80}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}A Solution Based On Switched Capacitors}{81}{subsection.5.4.1}
+\contentsline {section}{\numberline {5.5}Behavioral Level Verification Of The SC OLSDM}{87}{section.5.5}
+\contentsline {section}{\numberline {5.6}Future Work}{90}{section.5.6}
+\contentsline {section}{\numberline {5.7}Conclusion}{90}{section.5.7}
+\contentsline {chapter}{\numberline {6}Paper 3}{93}{chapter.6}
+\contentsline {section}{\numberline {6.1}Introduction}{94}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}When is OLSDM equivalent to SDM?}{97}{subsection.6.1.1}
+\contentsline {subsection}{\numberline {6.1.2}Zeros in NTF at non-zero frequency}{97}{subsection.6.1.2}
+\contentsline {section}{\numberline {6.2}When is OLSDM equivalent to SDM?}{99}{section.6.2}
+\contentsline {section}{\numberline {6.3}Modulo integrator}{103}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}Behavior level implementation}{103}{subsection.6.3.1}
+\contentsline {subsection}{\numberline {6.3.2}Switched-capacitor modulo integrator}{104}{subsection.6.3.2}
+\contentsline {subsection}{\numberline {6.3.3}Effects of finite gain in modulo integrators}{106}{subsection.6.3.3}
+\contentsline {section}{\numberline {6.4}Modulo resonator}{111}{section.6.4}
+\contentsline {subsection}{\numberline {6.4.1}Effects of finite gain in modulo resonators}{114}{subsection.6.4.1}
+\contentsline {section}{\numberline {6.5}Fifth-order low-pass OLSDM}{115}{section.6.5}
+\contentsline {subsection}{\numberline {6.5.1}Ideal modulator}{116}{subsection.6.5.1}
+\contentsline {subsection}{\numberline {6.5.2}Modulator with finite opamp gain in modulo integrators}{117}{subsection.6.5.2}
+\contentsline {subsection}{\numberline {6.5.3}Switched capacitor modulator}{118}{subsection.6.5.3}
+\contentsline {subsubsection}{Capacitor mismatch}{121}{section*.95}
+\contentsline {subsubsection}{Comparator Offset}{122}{section*.96}
+\contentsline {section}{\numberline {6.6}Conclusion}{122}{section.6.6}
+\contentsline {section}{\numberline {6.7}Proof of modulo theorem}{123}{section.6.7}
+\contentsline {section}{\numberline {6.8}Effects of finite gain in SC integrators}{123}{section.6.8}
+\contentsline {section}{\numberline {6.9}Effects of finite gain in modulo integrators}{124}{section.6.9}
+\contentsline {section}{\numberline {6.10}Calculation of the SNDR}{126}{section.6.10}
+\contentsline {section}{\numberline {6.11}Effects of finite gain in modulo resonators}{127}{section.6.11}
+\contentsline {chapter}{\numberline {7}Paper 4}{129}{chapter.7}
+\contentsline {section}{\numberline {7.1}Introduction}{130}{section.7.1}
+\contentsline {section}{\numberline {7.2}Dynamic comparator architecture}{131}{section.7.2}
+\contentsline {section}{\numberline {7.3}Simulation Results}{133}{section.7.3}
+\contentsline {section}{\numberline {7.4}Future work}{136}{section.7.4}
+\contentsline {section}{\numberline {7.5}Acknowledgements}{137}{section.7.5}
+\contentsline {section}{\numberline {7.6}Conclusion}{137}{section.7.6}
+\contentsline {chapter}{\numberline {8}Paper 5}{139}{chapter.8}
+\contentsline {section}{\numberline {8.1}Introduction}{139}{section.8.1}
+\contentsline {section}{\numberline {8.2}Pipelined Architecture}{143}{section.8.2}
+\contentsline {subsection}{\numberline {8.2.1}Open-Loop Amplifier}{145}{subsection.8.2.1}
+\contentsline {subsection}{\numberline {8.2.2}Clock Generation}{147}{subsection.8.2.2}
+\contentsline {section}{\numberline {8.3}Results of Simulation}{147}{section.8.3}
+\contentsline {section}{\numberline {8.4}Future Work}{149}{section.8.4}
+\contentsline {section}{\numberline {8.5}Conclusion}{150}{section.8.5}
+\contentsline {chapter}{\numberline {9}Paper 6}{151}{chapter.9}
+\contentsline {section}{\numberline {9.1}Introduction}{152}{section.9.1}
+\contentsline {paragraph}{Design Equations}{152}{section*.114}
+\contentsline {paragraph}{Mathematics based simulation}{152}{section*.115}
+\contentsline {paragraph}{SPICE simulation}{153}{section*.116}
+\contentsline {section}{\numberline {9.2}Opamp based switched-capacitor circuits}{153}{section.9.2}
+\contentsline {section}{\numberline {9.3}Comparator-based switched-capacitor circuit}{155}{section.9.3}
+\contentsline {section}{\numberline {9.4}Model of CBSC output voltage}{155}{section.9.4}
+\contentsline {section}{\numberline {9.5}CBSC design equations}{157}{section.9.5}
+\contentsline {section}{\numberline {9.6}Design example}{159}{section.9.6}
+\contentsline {section}{\numberline {9.7}Simulation results}{160}{section.9.7}
+\contentsline {section}{\numberline {9.8}Conclusion}{161}{section.9.8}
+\contentsline {chapter}{\numberline {10}Paper 7}{163}{chapter.10}
+\contentsline {section}{\numberline {10.1}Introduction}{164}{section.10.1}
+\contentsline {section}{\numberline {10.2}Opamp based switched-capacitor circuits}{165}{section.10.2}
+\contentsline {section}{\numberline {10.3}Comparator-based switched-capacitor circuits}{166}{section.10.3}
+\contentsline {subsection}{\numberline {10.3.1}Model of MDAC output voltage }{167}{subsection.10.3.1}
+\contentsline {section}{\numberline {10.4}Implementation}{169}{section.10.4}
+\contentsline {subsection}{\numberline {10.4.1}Sub ADC}{170}{subsection.10.4.1}
+\contentsline {subsection}{\numberline {10.4.2}Stage MDAC architecture}{170}{subsection.10.4.2}
+\contentsline {subsection}{\numberline {10.4.3}Continuous time bootstrapped switch}{171}{subsection.10.4.3}
+\contentsline {subsection}{\numberline {10.4.4}Comparator with adjustable threshold}{172}{subsection.10.4.4}
+\contentsline {subsection}{\numberline {10.4.5}Current sources}{175}{subsection.10.4.5}
+\contentsline {subsection}{\numberline {10.4.6}Bias circuits, digital error correction and reference voltages}{176}{subsection.10.4.6}
+\contentsline {section}{\numberline {10.5}Calibration}{176}{section.10.5}
+\contentsline {subsection}{\numberline {10.5.1}Deterministic time comparator threshold calibration }{177}{subsection.10.5.1}
+\contentsline {subsection}{\numberline {10.5.2}Non-deterministic calibration}{178}{subsection.10.5.2}
+\contentsline {section}{\numberline {10.6}Experimental results}{179}{section.10.6}
+\contentsline {subsection}{\numberline {10.6.1}Results of calibration}{179}{subsection.10.6.1}
+\contentsline {subsection}{\numberline {10.6.2}Measured power and accuracy}{179}{subsection.10.6.2}
+\contentsline {section}{\numberline {10.7}Conclusion}{181}{section.10.7}
+\contentsline {chapter}{\numberline {11}Comments to papers, conclusion and further work}{185}{chapter.11}
+\contentsline {section}{\numberline {11.1}Comments to papers}{185}{section.11.1}
+\contentsline {subsection}{\numberline {11.1.1}Paper 2}{185}{subsection.11.1.1}
+\contentsline {subsection}{\numberline {11.1.2}Paper 4}{185}{subsection.11.1.2}
+\contentsline {subsection}{\numberline {11.1.3}Paper 7}{186}{subsection.11.1.3}
+\contentsline {section}{\numberline {11.2}Conclusion}{186}{section.11.2}
+\contentsline {section}{\numberline {11.3}Further work}{188}{section.11.3}
+\contentsline {chapter}{References}{191}{section.11.3}

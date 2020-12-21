@@ -1,0 +1,48 @@
+\chapter{Paper 7}\label{sc:p7}
+\textbf{\Large An 8-bit 60-MS/s 8.5mW Differential Comparator-Based Switched-Capacitor
+  Pipelined ADC in 90nm CMOS Technology}\\
+\indent Carsten Wulff and Trond Ytterdal\\
+\indent Submitted to Journal of Solid State Circuits\\
+\renewcommand\myfigname{cbscfig:}
+\renewcommand\myeqname{cbsceq:}
+
+\newcommand{\myinlref}{\reg{inl_nocal}, \reg{inl_offcal} and
+  \reg{inl_gacal} }
+
+\newcommand{\myinl}{
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=\myfigwidth]{graphics/inl_nocal}}
+\label{cbscfig:inl_nocal} 
+\label{cbscfig:inl_cal}
+ \caption{No calibration, default values set before before
+   production}
+\end{figure} 
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=\myfigwidth]{graphics/inl_offcal}}
+\label{cbscfig:inl_offcal}
+\caption{Deterministic calibration of comparator
+ thresholds with current fixed}
+\end{figure}
+\begin{figure}[htbp]
+\centerline{\includegraphics[width=\myfigwidth]{graphics/inl_optcal}}
+ \caption{Non-deterministic calibration of positive and negative current plus
+ comparator threshold using a genetic
+ algorithm.}
+\label{cbscfig:inl_gacal}
+ \end{figure}
+}
+
+\section*{Errata}
+\begin{itemize}
+\item INL \& DNL: It was later discovered that the INL and DNL was
+  calculated with far to few points, and as a result, contained
+  significant noise. With the current number of points there is a 95\%
+  confidence level of a DNL error of 0.4LSB. 
+\end{itemize}
+
+\input{paper7copy}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "tb_paper7"
+%%% End: 

@@ -1,0 +1,13 @@
+#!/bin/bash
+######################################################################
+## Fcrop
+## Description:   
+## Author:        Carsten Wulff <wulff@iet.ntnu.no>
+## Created at:    Thu May 15 15:04:24 2008
+## Modified at:   Tue Jul 22 08:12:57 2008
+## Modified by:   Carsten Wulff <wulff@iet.ntnu.no>
+######################################################################
+ps2pdf14 -dPDFSETTINGS=/prepress $1 $1"tmp"
+pdfcrop $1"tmp" $1
+rm $1"tmp"
+    

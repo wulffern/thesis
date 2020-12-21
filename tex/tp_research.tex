@@ -1,0 +1,55 @@
+
+
+\documentclass{book}
+%\documentclass[final,10pt,a4paper,technote]{IEEEtran}
+\newcommand{\myfigwidth}{3.5in}
+\newcommand{\myfigwidthl}{5in}
+\newcommand{\myfigwidthc}{1.75in}
+\newcommand{\myfigwidthb}{2.33in}
+
+
+\usepackage[final]{graphicx}
+\usepackage{flafter}
+\usepackage{amssymb,amsmath}
+\usepackage{cite}
+\usepackage{subfigure}
+
+
+
+
+
+%-------------------------------------------------------
+% Custom Commands
+%-------------------------------------------------------
+
+\newcommand{\missing}[1]{{\color{Red} #1}}
+\newcommand{\SD}{Sigma-Delta }
+\newcommand{\eqn}[1]{
+\begin{equation}
+#1
+\end{equation}}
+
+\newcommand{\eqna}[1]{
+\setlength{\arraycolsep}{0.0em}
+\begin{eqnarray} 
+#1
+\end{eqnarray}
+\setlength{\arraycolsep}{5pt}
+}
+\newcommand{\myfigure}[3]{
+\begin{figure}[htb]
+\centering 
+ \includegraphics[width=\myfigwidth]{#1}
+  \caption{#2}
+  \label{fig:#3}
+\end{figure}
+}
+
+%\setlength{\parindent}{0in}
+
+\newcommand{\req}[1]{(\ref{eq:#1})}
+\newtheorem{assumption}{Assumption}
+\newtheorem{theorem}{Theorem}
+\begin{document}
+\input{research}
+\end{document}

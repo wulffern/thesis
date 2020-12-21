@@ -1,0 +1,181 @@
+
+\chapter{On spectral densities}
+\label{ap:on.psd}
+
+Spectral density is a measure on the average
+power of a signal as a function of frequency. There are two different
+definitions used in the literature. This paper serves to underline
+the difference between them. We also give the origin of spectral density.
+
+Warning: This is not an introduction to spectral density. If the
+subject is completely unfamiliar I'd advise reading another source. For
+example chapter 4 in \cite{johns} or chapter 7 in \cite{razavi}.
+
+\section{Definition of spectral density}
+There are two different definitions of spectral density used in the literature. They differ by a factor of two.
+The one used in signal processing books, like  \cite{gray.r.m}, is 
+\eqn{
+\label{eq:psd1}
+S_{x1}(f) = \inti{R_{x1}(\tau)e^{-j\omega\tau}d\tau}
+}
+And the one often used in books about noise, like \cite{ziel}, is
+\eqn{
+\label{eq:psd2}
+S_{x2}(f) = 2\inti{R_{x2}(\tau)e^{-j\omega\tau}d\tau}
+}
+In both cases $R_{xi}(\tau)$ is the auto-correlation function defined as
+\eqn{
+R_{xi}(\tau) = \overline{x_i(t)x_i(t+\tau)}
+}
+As we can plainly see 
+\eqn{S_{x1}(f) \neq S_{x2}(f)}
+and there is no way these two can be made equal if 
+\eqn{\label{eq:rxequal}R_{x1}(\tau) = R_{x2}(\tau)}
+
+This is OK, there is no
+problem having two different definitions for two different
+functions. In reality $S_{x1}(f)$ and $S_{x2}(f)$ are different functions of
+frequency, and we could say that
+\eqn{S_{x2}(f) = 2S_{x1}(f)} if \req{rxequal} is true.  
+
+\section{Source of  confusion}
+The problem with spectral density arise when reading literature from
+different communities, for example \cite{gray.r.m} and \cite{ziel} where
+$S_x(f)$ is used for both $S_{x1}(f)$ and $S_{x2}(f)$. 
+
+When I started investigating spectral densities this lead me to
+believe that different sources defined the same measure
+``spectral density'' in two different ways. The more sources I
+investigated the more unsure I was about which of the two definitions
+that was correct. After months of searching (not actively, but
+sporadically) I eventually found the original source of the definition
+of spectral density \cite{einstein14}. Having the original source
+helped, but I still don't know when the original definition split into \req{psd1} and
+\req{psd2}. However, I'm pretty sure the it's just a matter of
+convenience. To see why \req{psd2} is the most common among sources
+concerning noise we look at the inverse Fourier Transform.
+By the way, if you had not
+noticed yet, \req{psd1} says that {\em Spectral density is the Fourier
+Transform of the Auto-Correlation function}.
+
+The inverse Fourier Transform of \req{psd1} is
+\eqn{
+R_{x1}(\tau) = \frac{1}{2\pi}\inti{S_{x1}(f)e^{j\omega\tau}dw} = \inti{S_{x1}(f)e^{j\omega\tau}df}
+}
+since $dw = df dw/df = 2\pi df$. And for \req{psd2}
+\eqn{
+R_{x2}(\tau) = \frac{1}{2}\inti{S_{x2}(f)e^{jw\tau}df}
+}
+Before we proceed lets get rid of the $e$'s. We know that $e^{j\alpha} =
+\cos \alpha + j \sin \alpha$. So we could rewrite \req{psd1} as
+\eqn{
+S_{x1}(f) = \inti{R_{x1}(\tau)[\cos(\omega \tau) + j \sin( \omega
+  \tau)]d\tau}
+}
+and it turns out that since $R_{x1}(\tau)$ is an even function we can
+drop the $j\sin{\omega \tau}$ term. $S_{x1}(f)$ is also an even function
+since the Fourier Transform of an even function is  even. 
+
+The definitions then become
+\eqna{
+S_{x1}(f) &{}={}& \inti{R_{x1}(\tau)\cos(\omega\tau)d\tau}\nonumber\\
+R_{x1}(\tau) &{}={}& \inti{S_{x1}(f)\cos(\omega\tau)df}
+}
+and
+\eqna{
+S_{x2}(f) &{}={}& 2\inti{R_{x2}(\tau)\cos(\omega\tau)d\tau}\nonumber\\
+R_{x2}(\tau) &{}={}& \frac{1}{2}\inti{S_{x2}(f)\cos(\omega\tau)df}
+}
+We can rewrite $R_{x2}(\tau)$ as 
+\eqn{
+R_{x2}(\tau) = \overline{x_2(t)x_2(t + \tau)} = \int_0^{\infty}{S_{x2}(f)\cos(\omega\tau)df}
+}
+and if $\tau = 0$
+\eqn{
+\overline{x_2^2(t)} = \int_0^{\infty}{S_{x2}(f)df} 
+}
+So using spectral density definition \req{psd2} we see that average
+power (mean square value of $x_2(t)$) is equal to the integral from 0 to
+infinity of the spectral density. If we use \req{psd1} average power
+would be
+\eqn{
+\overline{x_1^2(t)} = 2\int_0^{\infty}{S_{x1}(f)df} 
+}
+But if $R_{x1}(\tau) = R_{x2}(\tau)$ then 
+\eqn{
+\overline{x_2^2(t)} = \overline{x_1^2(t)}
+}
+even though $S_{x1}(f) \neq S_{x2}(f)$.
+
+Definition \req{psd1} is  called the two-sided spectral density
+and \req{psd2} is called the one-sided spectral density.
+
+\section{Example: thermal noise}
+The spectral density of thermal noise in electronic circuit should be
+known to anyone that has studied analog electronics. We normally
+define the voltage spectral density of thermal noise as
+\eqn{
+\label{eq:othermal}
+S_{th}(f) = 4kTR
+}
+where k is Boltzmann's constant, T the temperature in Kelvin and R the
+resistance. But \req{othermal} is the spectral density when it is
+defined as in \req{psd2}. If we were to use \req{psd1} then the
+spectral density of thermal noise would be
+\eqn{
+S_{th}(f) = 2kTR
+}
+Both these spectral densities would give the same average power
+value if we use the inverse Fourier Transform of \req{psd1} and
+\req{psd2}.\footnote{Note that if you calculate the average power of
+  $S_{th}(f)$ you'll get infinity. You have to include the bandwidth of
+  the circuit you are considering for average power to have a finite value.}
+
+\section{Einstein: the source}
+In his 1914 paper \cite{einstein14} Albert Einstein described,
+supposedly for the first time, the auto-correlation function and
+what we have come to know as the spectral density. He defined the
+auto-correlation function as
+\eqn{
+ \mathfrak{M} (\Delta) = \overline{F(t)F(t + \Delta)}
+}
+and the intensity (spectral density) as
+\eqn{
+I(\theta) =  \int_0^{T}{\mathfrak{M}(\Delta) \cos ( \pi \frac{\Delta}{\theta})d\Delta}
+}
+where the period $\theta = T/n$ and $T$ is a very large value. The
+paper is very short, only 1 page, but it is worth reading. Note that
+\req{psd1} is often referred to as the {\em Wiener-Khintchine}  theorem.
+
+
+% \section{References}
+
+% \begin{enumerate}
+% \renewcommand\labelenumi{[\theenumi]}
+% \item \label{ps:johns}
+% D.~Johns and K.~Martin, \emph{Analog Integrated Circuit Design}.\hskip 1em plus
+%   0.5em minus 0.4em\relax John Wiley \& Sons, Inc., 1997.
+
+% \item \label{ps:razavi}
+% B.~Razavi, \emph{Design of Analog CMOS Integrated Circuits}.\hskip 1em plus
+%   0.5em minus 0.4em\relax McGraw-Hill, 2001.
+
+% \item \label{ps:gray.r.m}
+% R.~M. Gray and L.~D. Davisson, \emph{An Introduction to Statistical Signal
+%   Processing}.\hskip 1em plus 0.5em minus 0.4em\relax Cambridge University
+%   Press, 2004.
+
+% \item \label{ps:ziel}
+% A.~V.~D. Ziel, \emph{Noise in Solid State Devices and Circuits}.\hskip 1em plus
+%   0.5em minus 0.4em\relax John Wiley \& Sons Inc, 1986.
+
+% \item \label{ps:einstein14}
+% A.~Einstein, ``Method for the determinination of the statistical values of
+%   observations concerning quantities subject to irregular fluctuations,''
+%   \emph{{IEEE} {ASSP} Mag.}, vol. October, 1987.
+% \end{enumerate}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "../../wulff/work/ntnu/phd/thesis/tb_on.psd"
+%%% End: 

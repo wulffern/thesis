@@ -1,0 +1,88 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Fcbsc.tex
+%% Description:   
+%% Author:        Carsten Wulff <wulff@iet.ntnu.no>
+%% Created at:    Fri Sep 14 10:34:03 2007
+%% Modified at:   Fri Jun 13 09:32:10 2008
+%% Modified by:   Carsten Wulff <wulff@iet.ntnu.no>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Comparator Based Switched Capacitor Circuits}
+
+\input{sc-approach}
+
+The first comparator based switched capacitor (CBSC) circuit was published
+at ISSCC 2006 \cite{sepke06}. It introduced a technique to replace
+operational amplifiers in switched capacitor circuits. 
+
+Before we proceed the relation between ``time'' and ``input voltage''
+should be explained. There is a translation between input voltage and
+time in a CBSC circuit. A current from a current source is integrated
+for a certain time. High output voltage requires long integration
+time and low output voltage requires short integration
+time. As a consuquence the integration time is related to our input
+voltage. If the output voltage is to be a scaled version of the input
+the integration time must be proportional to the input. A simplistic
+model of the system would be 
+\begin{equation}
+  \label{eq:1}
+  V_o(n) = \frac{I}{C_{tot}}T_{vi}
+\end{equation}
+where $I$ is the constant current from the current source, $C_{tot}$
+is the total output capacitance and $T_{vi} = a V_i$ where $a$ is a
+constant. The constant $a$ should
+have the unit $F/A$.
+
+\section{Previous Work in CBSC}
+About sepke \& Co
+
+\section{Theoretical Model Of CBSC Circuits}
+
+
+\subsection{Linear current source}
+Most real current sources are not constant as a function of output
+voltage, but rather linear. Assume the current $I(t)$ is given by
+\begin{equation}
+I(t) = I_0 + g_oV_o(t)
+\end{equation}
+and that the $V_x(n)$ voltage for a linear current source is denoted by
+$V_{x2}(n)$. The output voltage $V_o(t)$ is a function of the input
+voltage and through this it is a function of integration time. To a first order approximation
+\begin{equation}
+V_o(t) = \frac{I_0}{C_{tot}}t
+\end{equation}
+which is what we found in the previous chapter for zero $\Delta T$. Here $C_{tot}$ is the total
+capacitance seen at the output.
+Equation \req{vx} then becomes
+\begin{equation}
+\label{eq:vxlc}
+V_{x2}(n) = -V_i(n-1) + a_2I_0\int_0^{T_{vi}(n) + \Delta T(n)}{ 1 +  \frac{g_o t}{C_{tot}}  dt} 
+\end{equation}
+To simplify the apperance of the equation we drop the time step $(n)$
+are now implicit. 
+Solving the integral and inserting \req{7}
+\begin{equation} 
+V_{x2} = a_2I_0\Delta T + \frac{g_o}{2C_{tot}a_2I_o}V_i^2 + \frac{g_o}{C_{tot}}V_i\Delta
+T + a_2I_0\frac{g_o}{2C_{tot}}\Delta T^2
+\end{equation} 
+In addition to the voltage offset derived in the previous equation we
+have an offset proportional to the square of the time difference, a
+voltage which is proportional to $V_i$ which will result in a gain
+error and a voltage proportional to the square of the input voltage
+that will give second order distortion. 
+
+
+
+\section{Designing CBSC Circuits}
+
+\subsection{Comparator}
+\subsection{Current Sources}
+\subsection{Design Example}
+
+
+\section{Results}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "thesis.tex"
+%%% End: 

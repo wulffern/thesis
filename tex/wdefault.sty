@@ -1,0 +1,134 @@
+\newcommand{\myfigwidth}{0.8\textwidth}
+\newcommand{\myfigwidthl}{0.9\textwidth}
+\newcommand{\myfigwidthm}{0.9\textwidth}
+\newcommand{\myfigwidthc}{0.4\textwidth}
+\newcommand{\myfigwidthe}{0.4\textwidth}
+\newcommand{\myfigwidthb}{0.6\textwidth}
+%\newcommand{\myfigwidth}{3.5in}
+%\newcommand{\myfigwidthl}{5in}
+%\newcommand{\myfigwidthm}{5in}
+%\newcommand{\myfigwidthc}{1.75in}
+%\newcommand{\myfigwidthb}{2.33in}
+
+
+
+\usepackage{graphicx}
+
+\usepackage{amssymb,amsmath}
+\usepackage{cite}
+%\usepackage{subfigure}
+\usepackage[below]{placeins}
+\usepackage{appendix}
+\usepackage{verbatim} 
+\usepackage{cases}
+
+
+\usepackage{cases}
+\usepackage{wrapfig}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{hyperref}
+\hypersetup{
+    bookmarks=true,         % show bookmarks bar?
+    unicode=false,          % non-Latin characters in Acrobat’s bookmarks
+    pdftoolbar=false,        % show Acrobat’s toolbar?
+    pdfmenubar=false,        % show Acrobat’s menu?
+    pdffitwindow=true,      % page fit to window when opened
+    pdftitle={Efficient ADCs in nano-scale CMOS technology},    % title
+    pdfauthor={Carsten Wulff},     % author
+    pdfsubject={We look at some of possible solutions to challenges
+      for ADCs in
+    nano-scale CMOS technology},   % subject of the document
+    pdfnewwindow=true,      % links in new window
+    pdfkeywords={analog-to-digital converters, comparator-based
+      switched capacitor circuits, open loop residue amplifiers,
+      open-loop sigma-delta modulators}, % list of keywords
+    colorlinks,       % false: boxed links; true: colored links
+    linkcolor=MidnightBlue,
+    citecolor=MidnightBlue,
+    filecolor=MidnightBlue,
+    urlcolor=MidnightBlue
+}
+
+\usepackage[all]{hypcap}
+
+\usepackage{subfigure}
+\usepackage{caption}
+\usepackage{flafter}
+%\@ifundefined{c@subfigure}{\newsubfloat{figure}}{} 
+%\def\subfigure{\subfloat} 
+%\@ifundefined{c@subtable}{\newsubfloat{table}}{} 
+%\def\subtable{\subfloat} 
+
+
+
+\newcommand{\IEEEPARstart}[2]{#1#2}
+%-------------------------------------------------------
+% Custom Commands
+%-------------------------------------------------------
+
+\newcommand{\missing}[1]{{\color{Red} #1}}
+\newcommand{\SD}{Sigma-Delta }
+\newcommand{\sd}{sigma-delta }
+\newcommand{\eqn}[1]{
+\begin{equation}
+#1
+\end{equation}}
+
+\newcommand{\eqna}[1]{
+\setlength{\arraycolsep}{0.0em}
+\begin{eqnarray} 
+#1
+\end{eqnarray}
+\setlength{\arraycolsep}{5pt}
+}
+\newcommand{\myfigname}{fig:}
+\newcommand{\myfigure}[3]{
+\begin{figure}[htb]
+\centering 
+ \includegraphics[width=\myfigwidth]{#1}
+  \caption{#2}
+  \label{\myfigname#3}
+\end{figure}
+}
+\newcommand{\myfigurea}[4]{
+\begin{figure}[htb]
+\centering 
+ \includegraphics[width=#4]{#1}
+  \caption{#2}
+  \label{\myfigname#3}
+\end{figure}
+}
+
+%\setlength{\parindent}{0in}
+\newcommand{\myeqname}{eq:}
+\newcommand{\myfignamehead}{Fig.}
+\newcommand{\req}[1]{(\ref{\myeqname#1})}
+\newtheorem{assumption}{Assumption}
+\newtheorem{theorem}{Theorem}
+
+\newcommand{\reg}[1]{{\myfignamehead} \ref{\myfigname#1}}
+
+%\newcommand{\dg}{}
+%\newcommand{\dge}{G_e}
+%\newcommand{\dgc}{G_c}
+%\newcommand{\dgcd}{\xi_e }
+%\newcommand{\rgc}{R[\dgc]}
+%\newcommand{\req}[1]{(\ref{eq:#1})}
+\newcommand{\mean}[1]{\frac{1}{N}\sum^N{#1}}
+\newcommand{\tabsp}{\\[6pt]}
+\newcommand{\en}[1]{\overline{e_{#1}^2}}
+%\newtheorem{theorem}{Theorem}
+\newcommand{\powavg}[1]{\lim_{T\to\infty} \frac{1}{T}\int^{+T/2}_{-T/2}{ #1 dt}}
+%\newcommand{\inti}[1]{\int_{-\infty}^{\infty}{#1}}
+\newcommand{\eomp}[1]{e^{j \omega #1}}
+\newcommand{\eomn}[1]{e^{-j \omega #1}}
+\newcommand{\inti}[1]{\int_{-\infty}^{\infty}{#1}}
+\newcommand{\intoi}[1]{\int_{0}^{\infty}{#1}}
+\newcommand{\intio}[1]{\int_{-\infty}^{0}{#1}}
+\newcommand{\eqaa}{&{}={}&}
+\newcommand{\refs}[1]{[\ref{#1}]}
+\newcommand{\half}{\dfrac{1}{2}}
+\def\abstract{\section*{Abstract}}
+\def\keywords{\paragraph*{Keywords}}
+
+\def\IEEEkeywords{\paragraph*{Keywords}}

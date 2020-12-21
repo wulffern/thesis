@@ -1,0 +1,137 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage{booktabs,hyperref}
+
+\title{The \texttt{ntnuthesis} class for \LaTeXe\\Version 0.9}
+\author{Federico Zenith}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This document describes the \texttt{ntnuthesis} class for \LaTeXe , a class for PhD theses at the Norwegian University of Science and Technology of Trondheim. It states the class' features, dependencies, installation procedures and how to modify it.
+\end{abstract}
+
+\section*{``What is \LaTeX?''}
+If you are lost and are not sure about what you are reading, \LaTeX\footnote{\LaTeXe\ is just a fancy way to write its current version.} is a very good program to write books, articles and letters. It is different from programs like Microsoft Word or OpenOffice.org Writer in that you do not specify the overall layout by yourself, but let the a program, \TeX, do it for you\footnote{\TeX, a typesetting system by Donald Knuth, is so well written that if you find a bug you are actually eligible for a \$327.68 reward. This reward doubles every year. It is one of the few programs that enjoys the reputation of being ``bug-free''.}.
+
+\LaTeX\ is a series of high-level functions that build on \TeX, which is instead a low-level typesetting system. Since \LaTeX\ has been programmed by experts that did the typesetting job for you, the document will look professional and consistent, and you may concentrate on \emph{what} to write rather than \emph{how} to write it. \TeX\ is particularly good at typesetting mathematics, and is often used in scientific journals and textbooks, and has a huge collection of extension (called \emph{packages}) for many other uses.
+
+Writing with \LaTeX\ requires however some learning: it is not a What-You-See-Is-What-You-Get word processor, as those you may be used to. Textbooks are available at most libraries and bookstores, see for example \emph{A Guide to \LaTeX} by Kopka and Daly, Addison-Wesley; you can also check out many resources on the Internet, such as Wikibooks\footnote{See \url{http://en.wikibooks.org/wiki/LaTeX}.}. You will probably need about two weeks to acquire a usable basis of knowledge, from which you will gradually learn on with time.
+
+\LaTeX\ is not only excellent software, it is also free. You can download Mik\TeX\ for Windows or \TeX\ Live (or the no-longer maintained but still common te\TeX) for UNIX-compatible systems.
+
+\section*{Description of the Class}
+The \texttt{ntnuthesis} class provides a subset of the \texttt{book} class suitable for doctoral theses written according to \textsc{ntnu} standards regarding title page, colophon, headers, margins, font size and so on.
+This class uses the B5 paper size directly, allowing you to have a correct idea of the final size and number of pages of your document. If you had used A4, readability of text and figures might be reduced as the pages were shrunk to B5, or, alternatively, layout would have been completely broken if you changed the size of fonts and other elements relative to the paper.
+
+\subsection*{Options}
+The class accepts four options:
+\begin{description}
+\item[\texttt{draft}] This option is passed directly to \texttt{ntnuthesis}'s parent class, \texttt{book}. It highlights bad boxes, does not include graphics (but shows the area where they would be), and deactivates hyperlinks (if the \texttt{hyperref} package was used). If you have very cumbersome images, the resulting file's size will be reduced as they are not included.
+\item[\texttt{final}] Also passed directly to \texttt{book}, is the opposite of \texttt{draft} and is set by default.
+\item[\texttt{a4crop}] This option that will print the B5 output centered on an A4 page with cropping marks. The layout of the resulting \textsc{pdf} may be incorrect if you compile the document along the route of \LaTeX$\rightarrow$\texttt{dvips}$\rightarrow$\texttt{ps2pdf}. In that case, pass the global option \texttt{[dvips]} to the class. PDF\LaTeX\ works generally well without further modifications, and is better tested.
+\item[\texttt{screen}] This option will output the document in a 5:4 ratio, suitable for viewing on a computer screen. If you have large pictures that take up a whole page, or any other part of the \LaTeX\ source that should be written differently depending on which version (print or screen) you are preparing, you can use the \verb|\printandscreen{}{}| command, a custom command defined by the class: its first option is for the printed version, the second one for the screen version.
+\begin{verbatim}
+\printandscreen{
+    code for printed mode
+}{
+    code for screen mode
+}
+\end{verbatim}
+An usage example may be code such as:
+\begin{verbatim}
+As stated on \printandscreen{page}{slide} \pageref{...},
+\end{verbatim}
+Here, you will automatically get the right word (``page'' or ``slide'') according to the build option.
+\end{description}
+
+Note that you \emph{can} use \texttt{a4crop} and \texttt{screen} together, but it does not really make much sense to print to A4 something meant for a computer screen.
+
+\subsection*{Dependencies}
+The class depends on very little, i.e. packages \texttt{crop}, \texttt{fancyhdr}, \texttt{geometry}, \texttt{ifthen} and \texttt{graphicx}. As these are standard components of all standard distributions, this class will likely work with no further problems.
+
+\subsection*{Installation}
+Simply copy the class file \texttt{ntnuthesis.cls} and the two logos, \texttt{NTNUlogo.eps} and \texttt{NTNUlogo.pdf}, in a folder seen by the \TeX\ engine and update the internal database:
+\begin{description}
+\item[UNIX:] copy in a subfolder of \verb|$TEXMF/tex/latex| and run \verb|texhash| (as root);
+\item[Windows (Mik\TeX):] copy in a subfolder of \verb|C:\Miktex\texmf\tex\latex\|,  and select \textbf{Options$\rightarrow$General$\rightarrow$Refresh now} from the Mik\TeX\ menu.
+\end{description}
+
+\subsection*{Usage}
+Simply start your \LaTeX\ file with \verb|\documentclass{ntnuthesis}|, and write on as you would for a \texttt{book} class.
+
+All other packages that do not directly concern the layout (such as \texttt{amsmath}, \texttt{inputenc}, \texttt{graphicx}, \texttt{makeidx} or others) can be added in the usual way, and the same goes for the placement of \verb|\tableofcontents| and other commands.
+
+\subsubsection*{Setting title and colophon}
+To set the thesis' title and colophon pages (usually the first two), you will have to give some commands in the document's preamble to specify title, subtitle, author, and so on. If you do not specify at least author and title, issuing \texttt{\textbackslash maketitle} will cause \LaTeX\ to crash on compilation.  If you simply do not want a particular field to be there at all, set it to be empty:  to unset the title, use \texttt{\textbackslash title\textbraceleft\textbraceright}. For a full reference of all available commands, see table \ref{tab:titlecommands}.
+
+\begin{table}
+\begin{center}
+\begin{tabular}{ccc}
+\toprule
+Field & Command & Additional information\\
+\toprule
+Author & \texttt{\textbackslash author\textbraceleft\ldots\textbraceright}\\
+\midrule
+Title &  \texttt{\textbackslash title\textbraceleft\ldots\textbraceright}\\
+\midrule
+Subtitle &  \texttt{\textbackslash subtitle\textbraceleft\ldots\textbraceright}\\
+\midrule
+Degree type &  \texttt{\textbackslash degreetype\textbraceleft\ldots\textbraceright} & \begin{minipage}{0.35\textwidth}Such as \emph{doctor artium}, \emph{doctor scientiarum}, etc.\end{minipage}\\
+\midrule
+Faculty &  \texttt{\textbackslash faculty\textbraceleft\ldots\textbraceright}\\
+\midrule
+Department &  \texttt{\textbackslash department\textbraceleft\ldots\textbraceright}\\
+\midrule
+Copyright notice & \texttt{\textbackslash copyrightnotice\textbraceleft\ldots\textbraceright} &  \begin{minipage}{0.35\textwidth}A basic notice is generated automatically, as:\\\emph{\copyright\ 1980 Umberto Eco.}\\Any text inserted with this command follows.\end{minipage}\\
+\midrule
+\textsc{Isbn}, electronic &  \texttt{\textbackslash isbnelectronic\textbraceleft\ldots\textbraceright}\\
+\midrule
+\textsc{Isbn}, printed &  \texttt{\textbackslash isbnprinted\textbraceleft\ldots\textbraceright}\\
+\midrule
+Serial number &  \texttt{\textbackslash serialnumber\textbraceleft\ldots\textbraceright}\\
+\midrule
+Month &  \texttt{\textbackslash setmonth\textbraceleft\ldots\textbraceright} & \begin{minipage}{0.35\textwidth}If unset, it defaults to the current month.\end{minipage}\\
+\midrule
+Year &  \texttt{\textbackslash setyear\textbraceleft\ldots\textbraceright} & \begin{minipage}{0.35\textwidth}If unset, it defaults to the current year.\end{minipage}\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\caption{\label{tab:titlecommands}The commands used to setup the title and colophon pages. The class takes care of the \textsc{issn} number by itself.}
+\end{table}
+
+
+\subsubsection*{Miscellaneous tips}
+If you want to use the common pattern with roman lowercase numbers for pages up to the first chapter (acknowledgements, abstract, table of contents, etc.), write \verb|\frontmatter| at the very beginning. When you want to revert to Arabic numbers for the thesis' chapters and appendices, write \verb|\mainmatter|. To deactivate chapter numbering at the end (for index and bibliography), use \verb|\endmatter|.
+
+If you have to write any appendices, use the command \verb|\appendix| just before writing them. This will change the chapter numbering appropriately.
+
+Figures in \LaTeX\ are the subject of many articles and books, so look these up for details. Remember to use the right format for your figure: vector graphics (\texttt{eps}) for diagrams, non-lossy bitmap (\texttt{png}) for images with sharp edges such as scanned diagrams, and lossy bitmap (\texttt{jpg}) only for photographic images. Use vector graphics whenever possible, since it does not lose quality with zooming and usually has a much smaller file size.
+
+Most of the times, there are specific \LaTeX\ packages for whatever your needs may be. Search CTAN before trying to fix things yourself, as it may save you a lot of effort and will generally provide a much better result. You will be probably interested in at least some of the following packages:
+\begin{itemize}
+\item[\texttt{ams*}] The \texttt{amsfonts}, \texttt{amsmath}, \texttt{amssymb} and \texttt{amsthm} packages are provided by the American Mathematical Society and provide many useful additional features related (you guessed) to mathematics typesetting.
+\item[\texttt{makeidx}] Allows to build a thesis index automatically, provided you place keys here and there in the text.
+\item[\texttt{listings}] Print program code, if you want to add it. Almost any programming language is supported.
+\item[\texttt{babel}] Most theses are written in English, but should you use another language you have to use the Babel package, so that the automatically generated elements of text are properly translated and hyphenation patterns are correct.
+\item[\texttt{booktabs}] Professional tables, a bit better looking than the \LaTeX\ default.
+\item[\texttt{sistyle}] Handle automatically the formatting of numbers and units, to avoid mistakes that would be difficult to catch by hand.
+\item[\texttt{hyperref}] With no extra effort to you, this package will automatically fill the resulting \textsc{pdf} with hyperlinks throughout the document. It will be possible to jump directly to a reference, figure, table, or any referred object from any part of the text where the reference is.
+\item[\texttt{epigraph}] In case you want to add some wise, insightful or just funny quote at the beginning of a chapter, you can use this package.
+\item[\texttt{ucs}] Allows to write directly in Unicode, so that you can easily write \emph{bl\aa\-b\ae r\-syltet\o y} and \emph{e\^ho\-\^san\^go \^ciu\-\^\j a\u ude} in the same document. In practice it is useful to write correctly the names of some people or objects with their name (such as \emph{\'Cuk converter} or \emph{doctor \v Zivago}) without resorting to \LaTeX\ commands (such \verb|\'Cuk| and \verb|\v Zivago|), which a spellchecker would not understand, or instead of incorrect, kludgy or clumsy spellings such as \emph{C\'uk} or \emph{Zhivago}.
+\item[\texttt{CJK}] Inserting Chinese, Japanese and Korean characters with \LaTeX\ is notoriously difficult to set up, but as with most things it will run smoothly once properly taken care of.
+\item[\texttt{chapterbib}] This is the package you need if you want to insert a bibliography at the end of each chapter, instead of a single one at the end of the thesis. If you use this together with \texttt{hyperref}, you \emph{must} also use the \texttt{natbib} package to resolve some issues.
+\item[\texttt{xy}] A package to layout flow graphs. Very powerful but not very user-friendly, you have to read its documentation carefully.
+\item[\texttt{mhchem}] This package is useful to correctly typeset chemical compounds and reactions in a more author-friendly way than resorting to math mode: to write $\mathrm{H}_3\mathrm{PO}_4$ you write \verb|\ce{H3PO4}| instead of \verb|$\mathrm{H}_3\mathrm{PO}_4$|.
+\end{itemize}
+
+
+\subsection*{Modifications}
+You are free to modify and redistribute this class as you see fit; if you make a new derived class, however, give it a new name so they do not collide. The actual class file is quite short, and should be easy to understand. Compile and read the file \texttt{clsguide.tex}, present in all distributions, to learn how to modify the class and add new features.
+
+
+
+
+\end{document}

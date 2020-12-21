@@ -1,0 +1,164 @@
+
+
+
+
+%---------------------------------------------------------------------
+\section{Least Significant Bit}
+%---------------------------------------------------------------------
+The Least Significant Bit (LSB) is the minimum step we have in the
+ADC. We define $V_{LSB}$ as as 
+\eqn{
+	V_{LSB} = \frac{V_{pp}}{2^N}
+}
+where $V_{pp}$ is the peak to peak signal swing of the ADC and N is the
+number of bits.
+
+\begin{exmp}
+Using $V_{pp}$ = 0.4V and N = 10 we get
+\eqn{
+	V_{LSB} = \frac{0.4V}{1024} = 0.39mV 
+}
+
+\end{exmp}
+
+%---------------------------------------------------------------------
+\section{Stage Capacitance}
+%---------------------------------------------------------------------
+
+Figure \reg{stagecaps} shows the capacitors connected to the
+current source during charge transfer. The capacitance $C_{01}$ and
+$C_{02}$ are given by
+\eqna{
+  C_{01} &{}={}& C_{1s1} + C_{ps1}\\
+  C_{02} &{}={}& \frac{C_{2s1}C_{01}}{C_{2s1} + C_{01}}
+} 
+, where $C_{1s1}$ is the capacitor one in the first stage, $C_{ps1}$
+is the parasitic capacitor of the comparator in the first stage and
+$C_{2s1}$ is the second capacitor in the first stage. The total
+capacitance is
+\eqn{
+  C_{tot} = \frac{C_{2s1}(C_{1s1} + C_{ps1})}{C_{2s1} + C_{1s1} + C_{ps1}} + C_{ss2}
+}
+, where $C_{ss2}$ is the sampling capacitor in the second stage.
+\myfigure{graphics/caps}{Capacitance network during charge
+  transfer}{stagecaps}
+
+%---------------------------------------------------------------------
+\subsection{Thermal Noise Limited Capacitance}
+%---------------------------------------------------------------------
+We assume that the capacitances are limited by thermal noise.
+The 
+average noise power of the quantization noise is given by
+\eqn{
+\label{eq:quantnoisepower}
+ \overline{ V_q^2(t)} = \frac{LSB^2}{12}
+}
+and thermal noise power is given by
+\eqn{
+\label{eq:thermalnoisepower}
+  \overline{V^2(t)} = \eta_t \frac{kT}{C}
+}
+where $\eta_t$ is a factor larger than one which represents how much
+of the noise budget should be attributed to thermal noise.
+Setting \req{quantnoisepower} equal to  \req{thermalnoisepower} we get
+\eqn{
+\label{eq:capsize2}
+C = \frac{\eta_t 12kT}{LSB^2} = \frac{\eta_t 12kT\times 2^{2N}}{V_{pp}^2}
+}
+
+\begin{exmp}
+
+Using \req{capsize2} with $LSB = 0.39mV$ and $\eta_t=1.5$, the
+sampling capacitor, $C_{ss1}$, has to be
+\eqn{
+C_{ss1} > \frac{1.5 \times 12 \times 1.38\times10^{-23} J/K \times 353 K }{  (0.39mV)^2}
+= 3.84\times10^{-13} J/V^2 \approx 600fF
+}
+For the second stage $LSB = 2 \times 0.39mV$ so the capacitance
+$C_{ss2}$ has to be
+\eqn{
+ C_{ss2} >\frac{1.5\times 3 \times 1.38\times10^{-23} J/K \times 353 K }{  (0.39mV)^2}
+= 9.61\times10^{-14} J/V^2 \approx 200fF
+}
+Which means that $C_{1s1} = C_{2s1} = 300fF$ and the total capacitance
+at the output, if we ignore parasitics, is given by
+\eqn{
+ C_{tot} = \frac{300fF \times 300fF}{300fF + 300fF} + 200fF = 350fF
+}
+If we allow for some parasitics we get a total output capacitance of
+around $400fF$
+
+\end{exmp}
+
+
+%---------------------------------------------------------------------
+\subsection{Virtual Ground Voltage Change}
+%---------------------------------------------------------------------
+Figure \reg{stagecaps} showed the capacitances in the stage during the
+multiply phase. If we ignore the parasitic capacitance $C_p$, the
+current in the two brances are equal. We can therfore write
+\eqna{
+C_2(\Delta V_O - \Delta V_{VG}) &{}={}& C_1 \Delta V_{VG}\\
+C_2 \Delta V_O &{}={}& (C_1  + C_2) \Delta V_{VG} 
+}
+and with $C_1 = C_2$ a change in $V_O$ causes a change in $V_{VG}$ of
+\eqn{
+\label{eq:cbscvgchange}
+\Delta V_{VG} = \frac{\Delta V_O}{2}
+}
+
+%---------------------------------------------------------------------
+\section{Integration Current}
+%---------------------------------------------------------------------
+The parameters of integration current is determined by the need to
+charge the output capacitance to a certain voltage and the accuracy
+needed at th output. First we will derive epressions for the necessary
+integration current as a function of speed. Next we will derive
+expressions for the neccessary output resistance of the current
+source.
+
+%---------------------------------------------------------------------
+\subsection{Neccessary Integration Current}
+%---------------------------------------------------------------------
+
+To charge the output capacitance within half the sampling period the
+output current  is given by
+\eqn{
+	I_1 = C_{tot} \frac{dV_o}{dt} = C_{tot} \frac{V_{max}}{T_s/2 - T_R} 
+}
+where $T_s = 1/F_s$ and $F_s$ is the sampling frequency, $T_R$ is the
+time needed to reset the output and a comparator delay.
+
+\begin{exmp} Using $C_{tot} = 400fF$, $T_R = 1ns$, $T_s/2 = 5ns$ and $V_{max} = 0.8V$  
+\eqn{
+	I_1 = 400fF \times \frac{0.8V}{4ns} = 80 \mu A
+}
+
+\end{exmp}
+
+%---------------------------------------------------------------------
+\subsection{Necessary Output Resistance}
+%---------------------------------------------------------------------
+The output resistance needed depends on the comparator delay and the
+integration current. A finite output resistance will lead to a gain
+error in the stage which must be less than 1 LSB if gain calibration
+is not used. 
+
+\eqna{
+	\Delta V &{}={}& SR \times T_C \nonumber\\
+	2 \eta_g \frac{V_{pp}}{2^N} &{}={}& \frac{V_{pp}}{r_{ds}\times C_{tot}} \times
+T_C \nonumber \\
+	r_{ds} &{}={}& \frac{2^{N-1}\times T_C}{\eta_g \times C_{tot}}
+}
+where $\eta_g$ is the portion of the error budget allotted to gain
+errors, $V_{pp}$ is the peak to peak signal swing, $T_C$ is the
+comparator delay and $N$ is the number of bits.
+
+\begin{exmp} Using $\eta_g = 0.5$, $N=10$, $C_{tot} = 400fF$ and $T_C
+= 300ps$
+\eqn{
+	r_{ds} =\frac{2^9\times300ps}{0.5\times 400fF} = 768 k\Omega
+}
+
+\end{exmp}
+which should not be too hard using wide swing enhanced cascode current sources.

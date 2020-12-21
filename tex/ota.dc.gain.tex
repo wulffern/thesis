@@ -1,0 +1,126 @@
+
+%#####################################################################
+\chapter{Opamp DC gain}
+%#####################################################################
+One of the challenges with opamp based switched-capacitor circuits in
+nano-scale CMOS is the DC gain of the opamp. High accuracy Nyquist SC ADCs
+need high DC gain.
+
+How difficult it is to design an opamp in nano-scale CMOS is set by
+the intrinsic gain of the transistors ($g_m/g_{ds}$). If we restrict
+our investigations to
+three types of opamps--- differential pair, folded cascode, and folded
+cascode with gain boosting ---, and different permutations of these,
+we can give an estimate of the DC gain based on the
+intrinsic gain  of a technology. 
+
+\subsubsection{Common Source (CS)}
+In a differential pair the amplifier is a common source amplifier.
+The DC gain of a common source amplifier can be approximated by
+\eqn{
+  A_{CS} = \frac{1}{2} G_i
+}
+
+
+\subsubsection{Folded Cascode (FC)}
+The FC is common in switched
+capacitor circuits. There are many variations on the FC, but the basic circuit
+can be seen in Figure \label{fig:foldedcasc}. The input differential
+pair provide the transconductance, and the cascode  increase the
+output resistance. If we assume that the transconductance of the input
+transistors are equal to that of the cascode transconductance, and that
+the intrinsic gain is defined as $G_i = g_m/g_{ds}$, we can
+approximate the DC gain by
+\eqn{
+  A_{FC} = g_{mi} \times g_{m} r_{ds}^2/2 = \frac{1}{2} G_i^2
+}
+
+
+\paragraph{Two Stage OTA}
+If we make a two-stage amplifier the total DC gain is a multiplication of
+the individual gains. For example a folded cascode with a common
+source output stage has a gain of
+\eqn{
+A_{tot} = A_{FC}A_{CS} = \frac{1}{4}G_i^3
+}
+
+\paragraph{Gain Boosting}
+Gain boosting is common in folded cascode OTA to further increase the
+output resistance. The technique increase the output
+resistance proportional to the gain of the gain boosting
+amplifier. Ergo the gain of a folded cascode with folded cascode gain
+boosting is
+\eqn{
+A_{FC[FC]} =
+A_{FC}A_{FC}
+= \frac{1}{4} G_i^4
+}
+
+Table \label{tab:otagain} is an overview of the estimated DC gain for
+different configurations of OTA. The first four OTAs  are well seasoned
+OTAs and can be found in many publications \cite{berntsen05}, \cite{ahmed05}. The last
+two are not trivial to design.
+
+\begin{table}[ht]
+\caption{Gain estimates for different OTA architectures}
+\centering 
+\begin{tabular}{ l | l | c }
+
+\label{tab:otagain}
+Gain Name&Architecture & Gain Estimate\\
+\hline 
+$A_{CS}$&CS & $\propto G_i$\\\hline 
+$A_{FC}$&FC & $\propto G_i^2$\\\hline 
+$A_{FC-CS}$&FC with CS second stage & $\propto G_i^3$\\\hline 
+$A_{FC[FC]}$&FC with FC gain boosters & $\propto G_i^4$\\\hline 
+$A_{FC[FC]-CS}$&FC with FC gain boosters and CS second stage & $\propto G_i^5$\\\hline 
+$A_{FC[FC]-FC}$&FC with FC gain boosters and FC second stage & $\propto G_i^6$\\
+\end{tabular}
+\end{table}
+
+
+\subsection{Opamp gain in different technologies}
+
+In the recent CMOS technology nodes we have seen a drastic reduction in
+intrinsic gain, making it harder and harder to design high DC gain
+opamps. In 65nm we have reached a point were it might not be practical
+to design opamps with 100dB gain. Such an opamp will be a challenge
+to design. Some of the challenges in the design of
+such an opamp include ensuring stability, achieving low power
+dissipation and designing multiple stable common mode
+feedback loops.
+
+The intrinsic gain can be used to estimate the DC gain of
+opamps. Table \label{tab:ingain} shows the intrinsic gain for
+transistors in different technology nodes. We've used a width to
+length ratio of ten and a length of 1.2 times the minimum length. All
+transistors were biased at an effective gate overdrive of $V_{EFF} = V_{GS} - V_{TH} =
+V_{DD}/8$ and a drain to source voltage of $V_{DS} =
+V_{DD}/2$. Table \label{tab:ingain} shows the gain estimates in dB for different
+OTA architectures. In 350nm and 180nm  more than $100dB$ gain is feasible without
+too much difficulty. But in 90nm and 65nm it would be very challenging
+to design an opamp with more than $100dB$ gain. The
+values in Table \label{tab:ingain} are what you get for free in each
+technology, any more gain for a given topology will cost time and
+effort.
+
+% Table \label{tab:realota} shows the gains of
+%some published OTAs.
+
+\begin{table}[ht]
+\caption{OTA gain estimates for different technology nodes and OTA architectures. Simulations in SPICE using $W/L=10, V_{EFF}=V_{DD}/8, V_{DS}
+  = V_{DD}/2, L=1.2L_{min}$. All gains are in dB.}
+\centering 
+\begin{tabular}{ l | c | c | c | c | c | c | c }
+
+\label{tab:ingain}
+Tech. node&$G_i$&$A_{CS}$&$A_{FC}$&$A_{FC-CS}$&$A_{FC[FC]}$&$A_{FC[FC]-CS}$&$A_{FC[FC]-FC}$\\
+\hline 
+65nm	&9	&13     &32	&45	&64	&77	&96\\
+90nm	&13	&16     &39	&55	&77	&93	&116\\
+130nm	&17	&19     &43	&62	&86	&105	&130\\
+180nm	&26	&22     &51	&73	&101	&123	&152\\
+350nm	&60	&30     &65	&95	&130	&160	&195\\
+\end{tabular}
+
+\end{table}
