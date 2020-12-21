@@ -17,7 +17,7 @@ make run-sh
 In the docker shell, do
 
 ``` sh
-cd thesis
+cd /thesis
 make
 ```
 
